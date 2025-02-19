@@ -1,0 +1,12 @@
+.nodata {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  align-self: stretch;
+}
+
+.nodata > h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}

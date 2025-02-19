@@ -1,0 +1,209 @@
+.body {
+  display: flex;
+  padding: 3rem 3rem 0;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-s-4, 1.6rem);
+  align-self: stretch;
+}
+
+.body > h1 {
+  color: var(--text-color, #333B48);
+  text-align: center;
+  font-size: 2.8rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 3.6rem;
+}
+
+.body > div {
+  display: flex;
+  padding: var(--spacing-s-5, 2rem) var(--spacing-s-0, 0rem);
+  align-items: center;
+  gap: var(--spacing-s-5, 2rem);
+  align-self: stretch;
+}
+
+.steps {
+  display: flex;
+  padding: var(--spacing-s-0, 0rem);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-s-4, 1.6rem);
+  flex: 1 0 0;
+}
+
+.steps > div {
+  display: flex;
+  padding: var(--spacing-s-0, 0rem);
+  align-items: flex-start;
+  gap: 1rem;
+  align-self: stretch;
+}
+
+.number {
+  display: flex;
+  width: 2.2rem;
+  height: 2.2rem;
+  padding: var(--spacing-s-0, 0rem);
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-s-0, 0rem);
+  border-radius: 1.4rem;
+  background: var(--btn-hover, #0051FF);
+}
+
+.number > span {
+  color: var(--light-color, #FFF);
+  text-align: center;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  width: 0.7805rem;
+  flex-shrink: 0;
+}
+
+.info {
+  display: flex;
+  padding: var(--spacing-s-0, 0rem);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-s-1, 0.4rem);
+  flex: 1 0 0;
+}
+
+.info > h2 {
+  color: var(--text-color, #333B48);
+  font-size: 1.7rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2.4rem;
+  letter-spacing: 0.015rem;
+}
+
+.info > span {
+  color: var(--text-color, #333B48);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem;
+  letter-spacing: 0.025rem;
+}
+
+.footer {
+  display: flex;
+  padding: var(--spacing-s-3, 1.2rem) var(--spacing-s-4, 1.6rem);
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  align-self: stretch;
+  background: var(--light-color, #FFF);
+}
+
+.menu-layer {
+  display: flex;
+  padding: var(--spacing-s-10, 4rem);
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-s-4, 1.6rem);
+  align-self: stretch;
+}
+
+.menu {
+  display: flex;
+  padding: var(--spacing-s-5, 2rem) var(--spacing-s-0, 0rem);
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-s-2, 0.8rem);
+  align-self: stretch;
+}
+
+.menu > h1 {
+  color: var(--text-color, #333B48);
+  text-align: center;
+  font-size: 2.8rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 3.6rem;
+}
+
+.menu > span {
+  color: var(--text-color, #333B48);
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem;
+  letter-spacing: 0.025rem;
+  align-self: stretch;
+}
+
+.menu-buttons {
+  display: flex;
+  padding: var(--spacing-s-0, 0rem);
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-s-3, 1.2rem);
+  background: var(--light-color, #FFF);
+}
+
+.file {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.drag {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  flex: 1;
+  padding: 1.5rem;
+  gap: 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--text-color);
+  background: var(--light-color, #FFF);
+  cursor: pointer;
+  color: var(--text-color);
+  transition: all .3s;
+}
+
+.drag.dragover {
+  border-style: dashed;
+  border-color: var(--border-color);
+}
+
+.drag.dragover > span {
+  color: var(--btn-text-color);
+}
+
+.drag.dragover > svg {
+  filter: brightness(0) saturate(100%) invert(46%) sepia(55%) saturate(4925%) hue-rotate(222deg) brightness(100%) contrast(103%);
+}
+
+.drag:hover {
+  opacity: .6;
+}
+
+.drag > span {
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 500;
+  transition: all .3s;
+}
+
+.drag > svg {
+  width: 42px;
+  height: 42px;
+  transition: all .3s;
+}
+
+.drag > span > span {
+  color: var(--success-color);
+  font-weight: 600;;
+  transition: all .3s;
+}

@@ -1,0 +1,107 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  flex: 1 0 0;
+  background-color: transparent;
+  position: fixed;
+  bottom: 1.2rem;
+  left: 0;
+  z-index: 2;
+  width: 100dvw;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  border-radius: 10px;
+  box-shadow: 0px -2px 6px 0px rgba(237, 240, 243, 0.1);
+
+  > button {
+    all: unset;
+    background-color: var(--btn-bg);
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 0;
+    align-self: stretch;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    transition: all .3s ease-in;
+    cursor: pointer;
+    position: relative;
+    padding: 1rem !important;
+
+    &:last-child {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    &:first-child {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    > span {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #A4B3C5;
+      line-height: 16px;
+    }
+
+    > .tooltip {
+      display: none;
+      > span {
+        color: #FFF !important;
+      }
+    }
+
+    &:hover > .tooltip {
+      display: flex;
+      opacity: 1 !important;
+    }
+  }
+
+  button.selected {
+    cursor: default;
+  }
+
+  button:not(.selected):hover > *:not(.tooltip) {
+    opacity: .65;
+  }
+
+}
+
+.img-rounded {
+  width: 32px;
+  min-height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: var(--disable-color);
+  box-shadow: 0 1px 5px rgba(0, 47, 135, 0.35);
+}
+
+.img-rounded > img {
+  transition: all .3s ease-in;
+}
+
+.selected img, .selected svg {
+  filter: brightness(0) saturate(100%) invert(46%) sepia(56%) saturate(4432%) hue-rotate(220deg) brightness(99%) contrast(102%);
+}
+
+.selected span {
+  color: var(--border-color) !important;
+}
+
+@media (max-height: 400px) {
+  .navbar {
+    padding: 5px 18.28px 0px 26.07px;
+    //;
+    //display: none;
+  }
+}

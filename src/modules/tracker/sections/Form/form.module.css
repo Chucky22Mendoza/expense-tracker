@@ -1,0 +1,37 @@
+.content {
+  padding: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-self: stretch;
+  gap: 1rem;
+  overflow-y: scroll;
+}
+
+.buttons {
+  display: flex;
+  gap: 1.5rem;
+  flex: 1;
+  align-self: stretch;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.btn {
+  display: flex;
+  flex: 1;
+  align-self: stretch;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+}
+
+.btn:last-child {
+  background-color: transparent;
+  color: var(--text-color);
+  border-color: var(--btn-bg);
+}

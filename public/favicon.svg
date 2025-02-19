@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Fondo circular -->
+  <circle cx="50" cy="50" r="50" fill="#646cff" />
+
+  <!-- Flecha hacia arriba (entrada) -->
+  <polygon points="50,20 70,50 60,50 60,80 40,80 40,50 30,50" fill="#FFFFFF" />
+
+  <!-- Flecha hacia abajo (salida) -->
+  <polygon points="50,80 30,50 40,50 40,20 60,20 60,50 70,50" fill="#FFFFFF" />
+</svg>

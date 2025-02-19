@@ -1,0 +1,17 @@
+.wrap {
+  flex-direction: column;
+  padding: 4rem 2rem;
+}
+
+.container {
+  background-color: var(--light-color);
+  max-width: 50rem;
+  width: 100%;
+  max-height: 25rem;
+  align-self: center;
+  justify-content: center;
+  border-radius: 1.5rem;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  box-shadow: 0 4px 20px 0 rgba(222, 229, 242, 0.6);
+}

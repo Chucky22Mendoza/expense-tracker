@@ -1,0 +1,156 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: 9px;
+  position: relative;
+  align-self: stretch;
+}
+
+.input-container.error > .search {
+  border-color: var(--error-color);
+}
+
+.input-container label {
+  padding: 0 4px;
+  opacity: 0;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #011E41;
+  transition: all .3s;
+  position: absolute;
+  left: 26px;
+  top: -8px;
+  background-color: var(--light-color);
+}
+
+.input-container > .search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 10px 14px 13px;
+  max-height: 56px;
+  gap: 0;
+  background: var(--light-color);
+  border: 1px solid var(--border-color);
+  border-radius: 80px;
+  align-self: stretch;
+  transition: all .3s ease-in-out;
+}
+
+.input-container > .search > input {
+  all: unset;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: var(--text-color);
+  transition: all .3s ease-in-out;
+  align-self: stretch;
+  flex: 1 0 0;
+  overflow: hidden !important;
+  max-width: calc(100% - 24px);
+}
+
+.input-container > .search > input:disabled {
+  cursor: not-allowed;
+  font-weight: 400;
+}
+
+.input-container:focus-within label,
+.input-container input:not(:placeholder-shown) + label,
+.input-container input:valid + label {
+  opacity: 1 !important;
+  color: var(--border-color);
+}
+
+.input-container .search {
+  border-color: var(--disable-color);
+}
+
+.input-container .search:has(input:valid), &:has(input:not(:placeholder-shown)) {
+  border-color: var(--border-color);
+}
+
+.input-container input:placeholder-shown + label {
+  color: var(--disable-color);
+  opacity: 1 !important;
+}
+
+.input-container.error label {
+  color: var(--error-color) !important;
+}
+
+.input-container > .search > input::placeholder {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: var(--disable-color) !important;
+  transition: all .3s ease-in-out;
+}
+
+.input-container:focus-within > .search > input::placeholder {
+  opacity: 0;
+}
+
+.helper {
+  display: flex;
+  padding: 0 0 0 23px;
+  align-self: stretch;
+}
+
+.helper span {
+  flex: 1 0 0;
+  color: var(--error-color);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.4px;
+}
+
+.input-container:focus-within .options {
+  display: flex;
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  align-self: stretch;
+  background-color: var(--bg-color);
+  z-index: 3;
+  max-width: 350px;
+  width: 100%;
+  max-height: 196px;
+  overflow-y: scroll;
+
+  button {
+    all: unset;
+    padding: 0 26px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 44px;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    min-height: 44px;
+    max-height: 44px;
+    height: 44px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow-wrap: anywhere;
+    overflow: hidden;
+
+    &.selected-option, &:hover {
+      font-weight: 700;
+      background-color: rgba(63, 107, 149, 0.1);
+    }
+  }
+}

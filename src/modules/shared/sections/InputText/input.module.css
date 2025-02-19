@@ -1,0 +1,158 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: 3px;
+  position: relative;
+  align-self: stretch;
+}
+
+.input-container > label {
+  padding: 0 4px;
+  opacity: 1;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-color);
+  position: absolute;
+  left: 26px;
+  top: -8px;
+  background-color: transparent;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
+  overflow: hidden;
+  transition: all .3s;
+  background-color: var(--light-color);
+  border-top-left-radius: .4rem;
+  border-top-right-radius: .4rem;
+}
+
+.input-container > input:placeholder-shown {
+  border-color: var(--border-color);
+  color: var(--disable-color);
+}
+
+.input-container > input:placeholder-shown + label {
+  color: var(--disable-color);
+}
+
+.input-container > ::-webkit-outer-spin-button,
+.input-container > input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-container > input[type=number] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+.input-container.error > label {
+  color: var(--error-color) !important;
+}
+
+.input-container > input[type=date]:invalid {
+  border-color: var(--disable-color);
+  color: var(--disable-color);
+}
+
+.input-container > input[type=date]:invalid::placeholder {
+  color: var(--disable-color);
+}
+
+.input-container > input[type=date]:invalid + label {
+  color: var(--disable-color);
+}
+
+.input-container > input {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 24px;
+  max-height: 56px;
+  background: var(--light-color);
+  border: 1px solid var(--border-color);
+  border-radius: 80px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: var(--text-color);
+  transition: all .3s ease-in-out;
+  align-self: stretch;
+  text-align: left;
+  width: 100%;
+  max-width: 100%;
+}
+
+.input-container > input:disabled {
+  cursor: not-allowed;
+  border-color: var(--disable-color);
+  color: var(--disable-color);
+  font-weight: 400;
+}
+
+.input-container > input:disabled + label {
+  color: var(--disable-color);
+}
+
+.input-container:focus-within > label,
+.custom-input:not(:placeholder-shown) + label,
+.custom-input:valid + label {
+  opacity: 1 !important;
+  color: var(--border-color);
+}
+
+.input-container > input::placeholder {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: var(--disable-color) !important;
+  transition: all .3s ease-in-out;
+}
+
+.input-container:focus-within > input::placeholder {
+  opacity: 0;
+}
+
+.helper {
+  display: flex;
+  padding: 0 0 0 23px;
+  align-self: stretch;
+}
+
+.helper span {
+  flex: 1 0 0;
+  color: var(--error-color);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.4px;
+  text-align: left;
+}
+
+.input-container.error > .input-display {
+  border-color: var(--error-color) !important;
+}
+
+.input-container.error > input {
+  border-color: var(--error-color) !important;
+}
+
+.float {
+  max-height: 56px;
+  height: 56px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: transparent;
+  display: flex;
+  padding-right: 17px;
+  z-index: 2;
+}

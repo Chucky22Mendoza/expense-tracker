@@ -1,0 +1,104 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: 3px;
+  position: relative;
+  align-self: stretch;
+}
+
+.input-container > label {
+  padding: 0 4px;
+  opacity: 1;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #011E41;
+  transition: all .3s;
+  position: absolute;
+  left: 26px;
+  top: -8px;
+  background-color: #FFF;
+}
+
+.input-container.error > label {
+  color: #D71158;
+}
+
+.input-container > input:placeholder-shown, .input-container > input:placeholder-shown + label {
+  border-color: #A4B3C5;
+  color: #A4B3C5;
+}
+
+.input-container > input {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 24px;
+  max-height: 56px;
+  background: #FFF;
+  border: 1px solid #09274A;
+  border-radius: 80px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #011E41;
+  transition: all .3s ease-in-out;
+  align-self: stretch;
+  text-align: left;
+}
+
+.input-container > input:disabled {
+  cursor: not-allowed;
+}
+
+.input-container:focus-within > label,
+.custom-input:not(:placeholder-shown) + label,
+.custom-input:valid + label {
+  opacity: 1 !important;
+  color: #011E41;
+}
+
+.input-container > input::placeholder {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: #A4B3C5 !important;
+  transition: all .3s ease-in-out;
+}
+.input-container > input:placeholder-shown {
+  border-color: #A4B3C5;
+}
+
+.input-container:focus-within > input::placeholder {
+  opacity: 0;
+}
+
+.helper {
+  display: flex;
+  padding: 0 0 0 23px;
+  align-self: stretch;
+}
+
+.helper span {
+  flex: 1 0 0;
+  color: #D71158;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.4px;
+  text-align: left;
+}
+
+.input-container.error > .input-display {
+  border-color: #D71158 !important;
+}
+
+.input-container.error > input {
+  border-color: #D71158 !important;
+}

@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  background-color: var(--light-color);
+  position: absolute;
+  bottom: 9.2rem;
+  right: 2rem;
+  padding: .4rem .6rem;
+  border-radius: 100%;
+  overflow: hidden;
+  width: 3.6rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: .1rem solid transparent;
+  align-items: center;
+  height: 3.4rem;
+
+  &:hover {
+    border-radius: 1.5rem;
+    width: 15rem;
+    border-color: var(--border-color);
+
+    > input {
+      width: 100%;
+    }
+  }
+
+  > input {
+    background-color: transparent;
+    color: var(--text-color);
+    width: 0;
+    font-size: 1.4rem;
+
+    &::placeholder {
+      color: var(--disable-color);
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: .8rem 1rem;
+    height: 4.2rem;
+    width: 4.6rem;
+
+    &:hover {
+      width: 18rem;
+    }
+
+    > svg {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+
+    > input {
+      font-size: 1.6rem;
+    }
+  }
+
+}

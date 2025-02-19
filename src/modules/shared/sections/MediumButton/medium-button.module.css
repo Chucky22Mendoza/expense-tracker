@@ -1,0 +1,149 @@
+.primary, .primary-active, .primary-disabled, .primary-hover {
+  display: inline-flex;
+  padding: var(--spacing-s-2, 0.8rem) var(--spacing-s-4, 1.6rem);
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-s-2, 0.8rem);
+  border-radius: 3.5rem;
+  transition: all .3s;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.primary > span,
+.primary-active > span,
+.primary-disabled > span,
+.primary-hover > span {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.01rem;
+}
+
+.primary {
+  background-color: transparent;
+}
+
+.primary > span {
+  color: var(--text-color);
+}
+
+.primary:hover, .primary-hover {
+  background-color: var(--light-color) !important;
+}
+
+.primary:hover > span, .primary-hover > span {
+  color: var(--y-btn-hover-text, #4D596A);
+}
+
+.primary-active {
+  background-color: var(--border-color) !important;
+  cursor: default;
+}
+
+.primary-active:hover {
+  background-color: var(--btn-hover) !important;
+}
+
+.primary-active > span {
+  color: var(--light-color, #FFF);
+}
+
+.primary-disabled {
+  background-color: var(--y-btn-bg, #FFF) !important;
+  cursor: not-allowed;
+}
+
+.primary-disabled > span {
+  color: var(--y-btn-generic-disabled-text, #A0A2A7);
+}
+
+.secondary, .secondary-active, .secondary-disabled, .secondary-hover, .secondary-outline {
+  display: inline-flex;
+  padding: var(--spacing-s-2, 0.8rem) 1.4rem;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-s-2, 0.8rem);
+  border-radius: 1.8rem;
+  background-color: var(--light-color) !important;
+  transition: all .3s;
+  box-sizing: border-box;
+}
+
+.secondary > span,
+.secondary-active > span,
+.secondary-disabled > span,
+.secondary-hover > span,
+.secondary-outline > span {
+  color: var(--text-color);
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.6rem;
+  letter-spacing: 0.05rem;
+}
+
+.secondary {
+  background-color: var(--light-color, #FFF) !important;
+}
+
+.secondary > span {
+  color: var(--text-color);
+}
+
+.secondary:hover, .secondary-hover, .secondary-outline:hover {
+  background-color: var(--y-bg-20, #F2F3F6) !important;
+}
+
+.secondary:hover > span, .secondary-hover > span, .secondary-outline:hover > span {
+  color: var(--y-btn-hover-text, #4D596A);
+}
+
+.secondary-active {
+  cursor: default;
+  background-color: var(--text-color) !important;
+}
+
+.secondary-active > span {
+  color: var(--light-color);
+}
+
+.secondary-disabled {
+  cursor: not-allowed;
+  background-color: var(--light-color, #FFF) !important;
+}
+
+.secondary-disabled > span {
+  color: var(--y-btn-generic-disabled-text, #A0A2A7);
+}
+
+.secondary-outline {
+  border: 2px solid var(--y-btn-border, #EDEFF2);
+  background-color: var(--y-btn-bg, #FFF) !important;
+}
+
+.tertiary {
+  display: inline-flex;
+  padding: var(--spacing-s-2, 0.8rem) var(--spacing-s-3, 1.2rem);
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-s-2, 0.8rem);
+  border-radius: var(--border-b-rad-6, 3rem);
+  background-color: transparent !important;
+  transition: all .3s;
+  box-sizing: border-box;
+}
+
+.tertiary:hover {
+  background-color: var(--y-bg-light, #FFF) !important;
+}
+
+.tertiary > span {
+  color: var(--btn-text-color);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2rem;
+  letter-spacing: 0.01rem;
+}

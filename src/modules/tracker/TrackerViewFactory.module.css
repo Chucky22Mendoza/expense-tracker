@@ -1,0 +1,25 @@
+.viewer {
+  display: flex;
+  align-self: stretch;
+  flex: 1;
+  gap: 1.5rem;
+  padding: 4.5rem 2rem 15.2rem;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+  align-self: stretch;
+}
+
+@media (max-width: 768px) {
+  .viewer {
+    flex-direction: column;
+  }
+
+  .data {
+    flex: 0 0 50%;
+  }
+}

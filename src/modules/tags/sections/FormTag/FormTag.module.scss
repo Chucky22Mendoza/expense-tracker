@@ -1,0 +1,84 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 2rem;
+  align-self: stretch;
+  flex: 1;
+  overflow-y: scroll;
+
+  > h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+}
+
+.body {
+  display: flex;
+  gap: 0;
+  align-self: stretch;
+  position: relative;
+}
+
+.icon {
+  display: flex;
+  border-radius: 0 80px 80px 0;
+  right: -17px;
+  position: relative;
+}
+
+.color {
+  display: flex;
+  border: .1rem solid var(--border-color);
+  border-left-color: transparent;
+  width: 10rem;
+  align-self: stretch;
+  flex: 1;
+  border-radius: 0 80px 80px 0;
+  justify-content: center;
+  align-items: center;
+  font-size: small;
+  font-weight: 600;
+}
+
+.color-input {
+  position: absolute;
+  right: 0;
+  top: 5.6rem;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.buttons {
+  display: flex;
+  gap: 1.5rem;
+  align-self: stretch;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.btn {
+  display: flex;
+  flex: 1;
+  align-self: stretch;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+
+  &:hover {
+    background-color: var(--hover-color);
+  }
+  &:first-child {
+    background-color: var(--border-color);
+    color: var(--light-color);
+    border-color: var(--btn-bg);
+  }
+  &:last-child {
+    background-color: var(--btn-bg);
+    color: var(--light-color);
+    border-color: var(--btn-bg);
+  }
+}

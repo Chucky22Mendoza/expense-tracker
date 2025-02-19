@@ -1,0 +1,36 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  flex: 1;
+  padding: 1rem;
+  background-color: rgb(100, 108, 255, .5);
+  box-shadow: 0 .4rem 4rem rgba(100, 108, 255, .3);
+  border-radius: 1.5rem;
+  gap: 1rem;
+}
+
+.card > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card > div:first-child > h1 {
+  font-size: x-large;
+  font-weight: 700;
+}
+
+.card > div:first-child > button {
+  background-color: transparent;
+  font-size: medium;
+  font-weight: 600;
+  text-decoration: underline;
+  color: var(--disable-color)
+}
+
+.container {
+  display: flex;
+  border: .2rem solid var(--border-color);
+  border-radius: .5rem;
+  flex: 1;
+}

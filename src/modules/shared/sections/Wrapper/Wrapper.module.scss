@@ -1,0 +1,15 @@
+.content {
+  display: flex;
+  align-self: stretch;
+  flex: 1;
+  overflow-y: scroll;
+  gap: 2rem;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  flex: 1;
+  padding: 4.5rem 2rem 15.2rem;
+}

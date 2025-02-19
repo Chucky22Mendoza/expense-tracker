@@ -1,0 +1,35 @@
+.buttons {
+  display: flex;
+  gap: 1.5rem;
+  align-self: stretch;
+  justify-content: center;
+  padding-top: 2rem;
+
+  > button {
+    flex: 1;
+  }
+}
+
+.btn {
+  display: flex;
+  flex: 1;
+  align-self: stretch;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+
+  &:hover {
+    background-color: var(--hover-color);
+  }
+  &:first-child {
+    background-color: var(--border-color);
+    color: var(--light-color);
+    border-color: var(--btn-bg);
+  }
+  &:last-child {
+    background-color: var(--btn-bg);
+    color: var(--light-color);
+    border-color: var(--btn-bg);
+  }
+}

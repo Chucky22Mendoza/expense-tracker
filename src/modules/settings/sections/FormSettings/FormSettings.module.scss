@@ -1,0 +1,38 @@
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+
+  > button {
+    padding: 1.2rem 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--light-color);
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+
+    &:nth-child(1), &:nth-child(2) {
+      background-color: var(--text-color);
+    }
+
+    &:nth-child(1) {
+      grid-column-start: 1;
+      grid-row-start: 1;
+    }
+
+    &:nth-child(2) {
+      grid-column-start: 2;
+      grid-row-start: 1;
+    }
+
+    &:last-child {
+      grid-column: span 2 / span 2;
+      grid-column-start: 1;
+      grid-row-start: 2;
+      background-color: var(--error-color);
+    }
+  }
+}

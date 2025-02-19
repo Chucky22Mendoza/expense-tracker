@@ -1,0 +1,46 @@
+.lateral {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 35rem;
+  background-color: var(--light-color);
+  transition: all .3s;
+  right: -30rem;
+  width: 0;
+  height: 100dvh;
+  z-index: 102;
+  box-shadow: 0 4px 20px 0 rgba(222, 229, 242, 0.34);
+  top: 0;
+}
+
+.lateral > .close {
+  all: unset;
+  cursor: pointer;
+  position: absolute;
+  top: 12px;
+  padding: 13.5px;
+  border-radius: 80px;
+  background-color: #FFF;
+  z-index: 103;
+  box-sizing: border-box;
+  max-height: 51px;
+  box-shadow: 0 4px 20px 0 rgba(222, 229, 242, 0.34);
+  right: calc(100% + 18px);
+}
+
+.lateral > .close > img {
+  max-height: 24px;
+  max-width: 24px;
+  transform: rotate(180deg);
+}
+
+.lateral.show {
+  right: 0;
+  width: 100%;
+}
+@media (max-width: 428px) {
+  .lateral {
+    max-width: calc(100dvw - 8rem);
+  }
+}

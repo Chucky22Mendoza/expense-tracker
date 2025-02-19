@@ -1,0 +1,56 @@
+.label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all .3s;
+  max-height: 21px;
+
+}
+
+.label span {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: var(--disable-color);
+  white-space: nowrap;
+  transition: all .3s;
+}
+
+.label:has(input:checked) > span {
+  color: var(--error-color);
+  font-weight: 700;
+}
+
+.label > div {
+  width: 100%;
+  max-width: 52px;
+  min-width: 52px;
+  border-radius: 100px;
+  border: .2px solid var(--disable-color);
+  background-color: var(--light-color);
+  cursor: pointer;
+  padding: 3px;
+}
+
+.label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.label .indicator {
+  position: relative;
+  width: 14.03px;
+  height: 14.03px;
+  border-radius: 23px;
+  background-color: var(--disable-color);
+  transition: all .3s;
+}
+
+.label input:checked ~ .indicator {
+  background: linear-gradient(120deg, var(--btn-text-color) 0%, var(--error-color) 100%);
+  transform: translateX(31px);
+}
