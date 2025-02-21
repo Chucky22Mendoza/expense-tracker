@@ -59,6 +59,12 @@ function FormTransaction({
     }
 
     try {
+      console.log({
+        ...formData,
+        tagId: tagIdValue,
+        amount: Number(formData.amount),
+      });
+
       setTransaction({
         ...formData,
         tagId: tagIdValue,
@@ -69,6 +75,8 @@ function FormTransaction({
       setTagName('');
       onClose?.();
     } catch (err) {
+      console.log(err);
+
       toast.error('Failed to save transaction');
     }
   };
@@ -106,6 +114,7 @@ function FormTransaction({
         onChange={(value) => handleChange('amount', value)}
         required
         onlyNumbers
+        inputMode="decimal"
       />
       <SearchInput
         label="Tag"
