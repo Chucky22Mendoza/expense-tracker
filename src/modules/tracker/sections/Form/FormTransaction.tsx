@@ -51,7 +51,7 @@ function FormTransaction({
     let tagIdValue = formData.tagId;
 
     if (tagIdValue === -1) {
-      tagIdValue = tags.length + 1;
+      tagIdValue = (tags[tags.length - 1]?.id ?? 0) + 1;
       setTag({
         name: tagName,
         color: generateRandomColor(),
@@ -59,12 +59,6 @@ function FormTransaction({
     }
 
     try {
-      console.log({
-        ...formData,
-        tagId: tagIdValue,
-        amount: Number(formData.amount),
-      });
-
       setTransaction({
         ...formData,
         tagId: tagIdValue,
@@ -75,8 +69,6 @@ function FormTransaction({
       setTagName('');
       onClose?.();
     } catch (err) {
-      console.log(err);
-
       toast.error('Failed to save transaction');
     }
   };
