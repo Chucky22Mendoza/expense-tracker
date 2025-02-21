@@ -18,7 +18,7 @@ export const useTransactionStore = create(persist<ITransactionState>((set) => ({
       ...state.transactions,
       {
         ...transaction,
-        id: state.transactions[state.transactions.length - 1].id + 1,
+        id: (state.transactions[state.transactions.length - 1]?.id ?? 0) + 1,
       }
     ],
   })),
