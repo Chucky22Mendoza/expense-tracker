@@ -7,7 +7,16 @@ function Form() {
   const navigate = useNavigate();
 
   return (
-    <CardContainer title="New Transaction" buttonText="Settings" onClick={() => navigate('/settings')}>
+    <CardContainer
+      title="New Transaction"
+      buttonText="Settings"
+      onClick={() => navigate('/settings')}
+      style={{
+        height: '447.53px',
+        minHeight: '447.53px',
+        maxHeight: '447.53px',
+      }}
+    >
       <CardContent className={styles.content}>
         <FormTransaction />
       </CardContent>

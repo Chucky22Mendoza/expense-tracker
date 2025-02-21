@@ -22,7 +22,7 @@ function HeaderTable({ items, hasDeleteButton = false, type = 'tracker' }: Props
       ))}
       {
         hasDeleteButton && (
-          <div style={{ maxWidth: '50px', marginLeft: '1.5rem' }} />
+          <div style={{ maxWidth: '50px', width: '50px', marginLeft: '1.5rem' }} />
         )
       }
     </div>

@@ -15,6 +15,7 @@ type Props = {
   refForm?: React.LegacyRef<HTMLFormElement>;
   style?: React.CSSProperties;
   onClose?: () => void;
+  from?: 'tracker' | 'modal';
 };
 
 const resetTransaction: ICreateTransaction = {
@@ -30,6 +31,7 @@ function FormTransaction({
   refForm,
   style,
   onClose,
+  from = 'tracker',
 }: Props) {
   const setTransaction = useTransactionStore((state) => state.setTransaction);
   const setTag = useTagStore((state) => state.setTag);
@@ -49,8 +51,9 @@ function FormTransaction({
     }
 
     let tagIdValue = formData.tagId;
+    const tag = tags.find((tag) => tag.id === tagIdValue);
 
-    if (tagIdValue === -1) {
+    if (tagIdValue === -1 || tag?.name !== tagName) {
       tagIdValue = (tags[tags.length - 1]?.id ?? 0) + 1;
       setTag({
         name: tagName,
@@ -69,6 +72,7 @@ function FormTransaction({
       setTagName('');
       onClose?.();
     } catch (err) {
+      console.log(err);
       toast.error('Failed to save transaction');
     }
   };
@@ -80,14 +84,35 @@ function FormTransaction({
     toast.success('Transaction canceled successfully');
   };
 
+  const onAmountKeyDownHandler = (e: React.KeyboardEvent) => {
+    e.stopPropagation();
+    if (e.ctrlKey && (e.key === 'v' || e.key === 'V')) return;
+
+    const allowedKeys = ['Backspace', 'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Delete', 'Enter', 'Tab', 'Home', 'End', '.'];
+    if (!allowedKeys.includes(e.key)) {
+      if (isNaN(Number(e.key))) e.preventDefault();
+    }
+  };
+
   return (
     <form ref={refForm} className={styles.form} onSubmit={handleSubmit} style={style}>
       <div style={{ display: 'flex', alignSelf: 'flex-end', flex: '1' }}>
         <Switch
-          prevLabel={formData.type === 'income' ? 'Income' : 'Expense'}
+          prevLabel="Expense"
+          label="Income"
           checked={formData.type === 'income'}
           onChange={(value) => handleChange('type', value ? 'income' : 'expense')}
-          style={{ minWidth: '52px' }}
+          styleLabel={{
+            color: formData.type === 'income' ? from === 'tracker' ? '#FFF' : 'var(--btn-text-color)' : '#A4B3C5',
+            fontWeight: formData.type === 'income' ? '700' : '500',
+          }}
+          stylePrevLabel={{
+            color: formData.type === 'expense' ? from === 'tracker' ? '#FFF' : 'var(--btn-text-color)' : '#A4B3C5',
+            fontWeight: formData.type === 'expense' ? '700' : '500',
+          }}
+          styleIndicator={{
+            background: 'linear-gradient(120deg, var(--btn-text-color) 0%, var(--error-color) 100%)'
+          }}
         />
       </div>
       <InputText
@@ -103,9 +128,12 @@ function FormTransaction({
         placeholder="Value of transaction"
         name="value"
         value={formData.amount === 0 ? '' : formData.amount}
-        onChange={(value) => handleChange('amount', value)}
+        onChange={(value) => {
+          if (isNaN(Number(value))) return;
+          handleChange('amount', value);
+        }}
         required
-        onlyNumbers
+        onKeyDown={onAmountKeyDownHandler}
         inputMode="decimal"
       />
       <SearchInput

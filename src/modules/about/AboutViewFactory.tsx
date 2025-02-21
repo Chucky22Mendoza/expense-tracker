@@ -15,8 +15,8 @@ function AboutViewFactory() {
             <img src={Github} alt="Github" />
             <span>
               Made with <span role="img" aria-label="heart">❤️</span> by
+              <a href="https://github.com/Chucky22Mendoza" target="_blank"> Jesús Mendoza Verduzco</a>
             </span>
-            <a href="https://github.com/Chucky22Mendoza" target="_blank">Jesús Mendoza Verduzco</a>
           </div>
           <div>
             <img src={Linkedin} alt="Linkedin" />

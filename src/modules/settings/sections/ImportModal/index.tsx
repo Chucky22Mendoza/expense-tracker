@@ -75,6 +75,7 @@ export default function ImportModal({ onClickImport, onClose }: Props) {
                     <Import style={{ color: 'var(--text-color)' }} width={22} height={22} />
                   )}
                   href="/import-template.xlsx"
+                  download
                 />
               </div>
             </div>

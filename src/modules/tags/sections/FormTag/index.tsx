@@ -68,6 +68,7 @@ function FormTag({
           iconButton={
             <div className={styles.icon}>
               <button
+                type="button"
                 className={styles.color}
                 style={{ backgroundColor: newTag.color }}
                 onClick={() => {

@@ -11,11 +11,12 @@ function LargeButton({
   iconLeft = null,
   iconRight = null,
   href = null,
-  onClick = () => { },
+  onClick = () => {},
   styleSheet = {},
   target = null,
   typeButton = 'button',
-  styleText
+  styleText,
+  download,
 }: ButtonAnchorProps) {
   // Guard para verificar si existe href en props
   const textElement = (text !== '' && text !== null)
@@ -37,6 +38,7 @@ function LargeButton({
         href={href ?? '/'}
         className={`${styles.medium} ${styles[styleType]}`}
         style={styleSheet}
+        download={download}
       >
         {childContent}
       </ButtonOrAnchorProps>

@@ -3,6 +3,7 @@ import React from 'react';
 // Props de botón
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   href?: undefined;
+  download?: undefined;
 };
 
 export type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -19,6 +20,7 @@ export type ButtonAnchorProps = {
   typeButton?: 'button' | 'submit' | 'reset';
   id?: string;
   styleText?: React.CSSProperties | undefined;
+  download?: boolean;
 };
 
 export type DefaultProps = Omit<ButtonAnchorProps, 'styleType'>;

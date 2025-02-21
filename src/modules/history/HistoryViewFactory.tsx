@@ -13,7 +13,7 @@ import LateralForm from "../shared/sections/LateralForm";
 import { Wrapper, WrapperBody } from "../shared/sections/Wrapper";
 import { useCurrencyStore } from "../shared/store/CurrencyStore";
 import { format, isAfter } from "date-fns";
-import { TransactionRenderType } from "../tracker/domain/Transaction";
+import { ITransaction, TransactionRenderType } from "../tracker/domain/Transaction";
 import { toast } from "sonner";
 import SearchFloat from "../shared/sections/SearchFloat";
 import { useTagStore } from "../tracker/store/TagStore";
@@ -31,20 +31,22 @@ function HistoryViewFactory() {
   const { sign } = useCurrencyStore((state) => state.currency);
 
   const transactionsOrdering = useMemo<TransactionRenderType[]>(() => {
-    const transactionsTransform: TransactionRenderType[] = transactions.map((trans) => ({
+    const transactionsCopy: ITransaction[] = [...transactions];
+    transactionsCopy.sort((a: ITransaction, b: ITransaction) =>
+      b.date !== a.date
+        ? isAfter(new Date(b.date), new Date(a.date))
+          ? 1
+          : -1
+        : 0
+    );
+    const transactionsTransform: TransactionRenderType[] = transactionsCopy.map((trans) => ({
         ...trans,
         date: format(new Date(trans.date), 'dd-MM-yyyy').toString(),
         amount: formatCurrencyShort(trans.amount, sign),
         tag: tags.find((t) => t.id === trans.tagId) ?? tags[0],
     }));
 
-    return transactionsTransform.sort((a: TransactionRenderType, b: TransactionRenderType) =>
-      b.date !== a.date
-        ? isAfter(new Date(b.date), new Date(a.date))
-          ? 1
-          : -1
-        : 0
-    )
+    return transactionsTransform;
   }, [transactions, tags]);
 
   const filterSearchTransactions = useMemo<TransactionRenderType[]>(() => (
@@ -92,38 +94,39 @@ function HistoryViewFactory() {
         }
         <SearchFloat onChange={setSearchText} value={searchText} />
       </WrapperBody>
-        <CenterModal
-          isOpen={isOpen}
-          hasClickBlurClose
-          title="Delete transaction"
-          onConfirm={() => {
-            removeTransaction(transactionId);
-            toast.success('Transaction deleted successfully');
-          }}
-          onCancel={() => setIsOpen(false)}
-          onClose={() => setIsOpen(false)}
-          onConfirmClose
-          subtitle="Are you sure you want to delete this transaction?"
-          icon={<img src={questionMarkIcon} alt="?" />}
-          allowConfirm
-        />
-        <LateralForm
-          isOpen={isOpenForm}
-          onClose={() => setIsOpenForm(false)}
-          style={{
-            padding: '2rem',
-          }}
-        >
-          <div className={styles.modal}>
-            <h1 className={styles.title}>Create New Transaction</h1>
-            <FormTransaction
-              hasFooterButtons
-              refForm={refForm}
-              style={{ flex: 'none' }}
-              onClose={() => setIsOpenForm(false)}
-            />
-          </div>
-        </LateralForm>
+      <CenterModal
+        isOpen={isOpen}
+        hasClickBlurClose
+        title="Delete transaction"
+        onConfirm={() => {
+          removeTransaction(transactionId);
+          toast.success('Transaction deleted successfully');
+        }}
+        onCancel={() => setIsOpen(false)}
+        onClose={() => setIsOpen(false)}
+        onConfirmClose
+        subtitle="Are you sure you want to delete this transaction?"
+        icon={<img src={questionMarkIcon} alt="?" />}
+        allowConfirm
+      />
+      <LateralForm
+        isOpen={isOpenForm}
+        onClose={() => setIsOpenForm(false)}
+        style={{
+          padding: '2rem',
+        }}
+      >
+        <div className={styles.modal}>
+          <h1 className={styles.title}>Create New Transaction</h1>
+          <FormTransaction
+            hasFooterButtons
+            refForm={refForm}
+            style={{ flex: 'none' }}
+            onClose={() => setIsOpenForm(false)}
+            from="modal"
+          />
+        </div>
+      </LateralForm>
     </Wrapper>
   );
 }

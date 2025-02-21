@@ -12,6 +12,9 @@ type Props = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'val
   checked?: boolean;
   prevLabel?: string;
   styleParent?: React.CSSProperties;
+  styleLabel?: React.CSSProperties;
+  stylePrevLabel?: React.CSSProperties;
+  styleIndicator?: React.CSSProperties;
 };
 
 /**
@@ -20,17 +23,29 @@ type Props = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'val
  * @param {Props} props - The props for the Switch component.
  */
 function Switch(props: Props) {
-  const { onChange, label, checked = false, styleParent, prevLabel = '' } = props;
+  const {
+    onChange,
+    label,
+    checked = false,
+    styleParent,
+    prevLabel = '',
+    styleLabel,
+    stylePrevLabel,
+    styleIndicator,
+  } = props;
 
   let propsInput = { ...props };
   delete propsInput.label;
   delete propsInput.styleParent;
   delete propsInput.checked;
   delete propsInput.prevLabel;
+  delete propsInput.styleLabel;
+  delete propsInput.stylePrevLabel;
+  delete propsInput.styleIndicator;
 
   return (
     <label className={styles.label} style={styleParent}>
-      <span>{prevLabel}</span>
+      <span style={stylePrevLabel}>{prevLabel}</span>
       <div>
         <input
           {...propsInput}
@@ -38,9 +53,9 @@ function Switch(props: Props) {
           checked={checked}
           onChange={(e) => onChange?.(e.target.checked)}
         />
-        <div className={styles.indicator} />
+        <div className={styles.indicator} style={styleIndicator} />
       </div>
-      <span>{label}</span>
+      <span style={styleLabel}>{label}</span>
     </label>
   );
 }

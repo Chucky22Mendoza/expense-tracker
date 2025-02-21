@@ -1,9 +1,9 @@
 .container {
   display: flex;
   background-color: var(--light-color);
-  position: absolute;
+  position: fixed;
   bottom: 9.2rem;
-  right: 2rem;
+  left: 50%;
   padding: .4rem .6rem;
   border-radius: 100%;
   overflow: hidden;
@@ -13,6 +13,7 @@
   border: .1rem solid transparent;
   align-items: center;
   height: 3.4rem;
+  transform: translateX(-50%);
 
   &:hover {
     border-radius: 1.5rem;

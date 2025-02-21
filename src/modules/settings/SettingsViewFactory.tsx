@@ -46,7 +46,8 @@ function SettingsViewFactory() {
         style={{
           maxWidth: '60rem',
           overflow: 'scroll',
-          maxHeight: '46.5rem',
+          maxHeight: 'none',
+          height: 'auto',
           padding: '0',
           gap: '0',
         }}
